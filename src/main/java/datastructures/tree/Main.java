@@ -6,20 +6,20 @@ public class Main {
 
         BinarySearchTree myBST = new BinarySearchTree();
 
-        myBST.insert(47);
-        myBST.insert(21);
-        myBST.insert(76);
-        myBST.insert(18);
-        myBST.insert(27);
-        myBST.insert(52);
-        myBST.insert(82);
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
 
 
         System.out.println("BST Contains 27:");
-        System.out.println(myBST.contains(27));
+        System.out.println(myBST.rContains(27));
 
         System.out.println("\nBST Contains 17:");
-        System.out.println(myBST.contains(17));
+        System.out.println(myBST.rContains(17));
 
 
         /*
