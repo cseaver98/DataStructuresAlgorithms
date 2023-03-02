@@ -14,24 +14,8 @@ public class Main {
         myBST.rInsert(52);
         myBST.rInsert(82);
 
-
-        System.out.println("BST Contains 27:");
-        System.out.println(myBST.rContains(27));
-
-        System.out.println("\nBST Contains 17:");
-        System.out.println(myBST.rContains(17));
-
-
-        /*
-            EXPECTED OUTPUT:
-            ----------------
-            BST Contains 27:
-            true
-
-            BST Contains 17:
-            false
-
-        */
+        System.out.println(myBST.BFS());
+        System.out.println(myBST.DFSInOrder());
 
     }
 

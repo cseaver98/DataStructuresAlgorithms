@@ -1,5 +1,9 @@
 package datastructures.tree;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
     Node root;
@@ -53,7 +57,9 @@ public class BinarySearchTree {
 
     public void rInsert(int value) {
         if (root == null) root = new Node(value);
-        rInsert(root, value);
+        else {
+            rInsert(root, value);
+        }
     }
 
     public boolean contains(int value) {
@@ -118,5 +124,62 @@ public class BinarySearchTree {
             node = node.left;
         }
         return node.value;
+    }
+
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        queue.add(currentNode);
+        while (!queue.isEmpty()) {
+            currentNode = queue.poll();
+            results.add(currentNode.value);
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+            if (currentNode.right != null) {
+                queue.add(currentNode.right);
+            }
+        }
+        return results;
+    }
+
+    public ArrayList<Integer> DFSPreOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        preOrderHelper(root, results);
+        return results;
+    }
+
+    private void preOrderHelper(Node current, ArrayList<Integer> results) {
+        if (current == null) return;
+        results.add(current.value);
+        preOrderHelper(current.left, results);
+        preOrderHelper(current.right, results);
+    }
+
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        postOrderHelper(root, results);
+        return results;
+    }
+
+    private void postOrderHelper(Node current, ArrayList<Integer> results) {
+        if (current == null) return;
+        postOrderHelper(current.left, results);
+        postOrderHelper(current.right, results);
+        results.add(current.value);
+    }
+
+    public ArrayList<Integer> DFSInOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        inOrderHelper(root, results);
+        return results;
+    }
+
+    private void inOrderHelper(Node current, ArrayList<Integer> results) {
+        if (current == null) return;
+        inOrderHelper(current.left, results);
+        results.add(current.value);
+        inOrderHelper(current.right, results);
     }
 }
